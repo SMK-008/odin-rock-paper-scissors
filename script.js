@@ -114,5 +114,3 @@ function playGame(){
     })
 }
 playGame()
-// const restart=document.querySelector('#restart')
-// restart.addEventListener('click',playGame)
