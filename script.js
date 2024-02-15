@@ -1,91 +1,118 @@
+let rock=document.querySelector('#rock')
+let paper=document.querySelector('#paper')
+let scissors=document.querySelector('#scissors')
+let player=document.querySelector('#player')
+let computer=document.querySelector('#computer')
+
+
+
+let buttons=document.querySelectorAll('button')
+
 function playGame(){
-    //prompts the player to make a choice 
-    let mySelection=prompt("Choose between rock ,paper and scissors ")
-    let choices=["Rock","Paper","Scissors"]
-    let index=Math.floor(Math.random()*choices.length)//Randomly chooses a number between 0 and 2(This numbers representing the index of the items in the choices array)
 
-    let compSelection=choices[index]//chooses one of the elements in the choices array randomly
-
-    function findWinner(){
+    
+    // let myScore=player.textContent
+    // let aiScore=computer.textContent
+    
+    let myScore=0
+    let aiScore=0
+    rock.addEventListener('click',()=>{
+        let choices=["Rock","Paper","Scissors"]
+        let index=Math.floor(Math.random()*choices.length)
+        let compSelection=choices[index]
         
+        if(myScore<5 && aiScore<5){
+            if(compSelection=="Paper"){
+                aiScore+=1
+                }else if(compSelection=="Scissors"){
+                    myScore+=1
+                }else{
+                    myScore+=0
+                    aiScore+=0
+                    
+                    
+                }
+                
+        
+                player.textContent=myScore
+                computer.textContent=aiScore
+                
+                console.log(`Opponent: ${compSelection}`)
 
-        //Below statements check for whether any value has been entered
-        if(mySelection==""){
-            console.log("Please choose something")
         }
-        
-        else if((mySelection != "")){
-
-
-            //Below statements check for any entry outside of Rock ,Paper and Scissors
-            if(mySelection != "Rock" && mySelection!= "Paper" && mySelection!= "Scissors"){
-            console.log("Please enter a valid choice")
+        else{
+            if(aiScore==5){
+                alert("Game over.Computer has won!!")
+            }else if(myScore==5){
+                alert("Game over.You have won!!")
             }
-
-            else{
-
-                //Below statements consist of individual checks for  each choice made by the player
-                if(mySelection=="Rock"){
-
-
-                    //Below statements are comparisons for Rock against computer choices
-                    if(compSelection=="Paper"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Paper eats rock for breakfast.Computer wins!")
-                    }
-                    else if(compSelection=="Rock"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Rock cant hurt Rock.Nobody wins!")
-                    }
-                    else if(compSelection=="Scissors"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Rock crushes scissors.Player wins!")
-                    }
-                }
-                else if(mySelection=="Paper"){
-
-
-                    //Below statements are comparisons for Paper against computer choices
-                    if(compSelection=="Rock"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Paper eats rock for breakfast.Player wins!")
-                    }
-                    else if(compSelection=="Paper"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Paper cant hurt paper.Nobody wins!")
-                    }
-                    else if(compSelection=="Scissors"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Scissors slices and dices paper.Computer wins!")
-                    }
-                }
-                else if(mySelection=="Scissors"){
-
-
-                    //Below statements are comparisons for Scissors against computer choices
-                     if(compSelection=="Rock"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Rock crushes scissors.Computer wins!")
-                    }
-                    else if(compSelection=="Paper"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Scissors slices and dices paper.Player wins!")
-                    }
-                    else if(compSelection=="Scissors"){
-                        console.log(`You chose ${mySelection} and computer chose ${compSelection}`)
-                        console.log("Scissors cant hurt their own kind.Nobody wins!")
-                    }
-                }
-            }
-            
         }
-        
-    
+         
+    })
 
-    
-    
+    paper.addEventListener('click',()=>{
+        let choices=["Rock","Paper","Scissors"]
+        let index=Math.floor(Math.random()*choices.length)
+        let compSelection=choices[index]
+        
+        if(myScore<5 && aiScore<5){
+            if(compSelection=="Paper"){
+                myScore+=0
+                aiScore+=0
+                }else if(compSelection=="Scissors"){
+                    aiScore+=1
+                }else{
+                    myScore+=1
+                    
+                    
+                }
+                
+        
+                player.textContent=myScore
+                computer.textContent=aiScore
+
+                console.log(`Opponent: ${compSelection}`)
+
+        
+        }
+        else{
+            if(aiScore==5){
+                alert("Computer has won!!")
+            }else if(myScore==5){
+                alert("You have won!!")
+            }
+        }
+         
+    })
+
+    scissors.addEventListener('click',()=>{
+        let choices=["Rock","Paper","Scissors"]
+        let index=Math.floor(Math.random()*choices.length)
+        let compSelection=choices[index]
+        
+        if(myScore<5 && aiScore<5){
+            if(compSelection=="Paper"){
+                myScore+=1
+                }else if(compSelection=="Scissors"){
+                    myScore+=0
+                    aiScore+=0
+                }else{
+                    aiScore+=1  
+                }
+                player.textContent=myScore
+                computer.textContent=aiScore
+                console.log(`Opponent: ${compSelection}`)
+        }
+        else{
+            if(aiScore==5){
+                alert("Game over.Computer has won!!")
+            }else if(myScore==5){
+                alert("Game over.You have won!!")
+            }
+        }
+         
+    })
 }
-
-findWinner()
-}    
 playGame()
+// const restart=document.querySelector('#restart')
+// restart.addEventListener('click',playGame)
