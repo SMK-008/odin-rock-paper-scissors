@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="game">
-    
+    <button id="new">New Game</button>
         <table>
             <tr>
                 <th>Player</th>
@@ -22,9 +22,23 @@
             </tr>
         </table>
         <div class="container">
-            <button id="rock"value="Rock">Rock</button>
-            <button id="paper" value="Paper">Paper</button>
-            <button id="scissors" value="Scissors">Scissors</button>
+            <div class="rock">
+                <button id="rock"value="Rock"></button>
+                <p>Rock</p>
+            </div>
+            <div class="paper">
+                <button id="paper" value="Paper"></button>
+                <p>Paper</p>
+            </div>
+            <div class="scissors">
+                <button id="scissors" value="Scissors"></button>
+                <p>Scissors</p>
+            </div>
+        </div>
+        <div class="choices">
+            <h1>Game Log</h1>
+            <div class="logs"></div>
+            <button id="clear">Clear log</button>
         </div>
     </div>
 </body>

@@ -7,6 +7,8 @@ let computer=document.querySelector('#computer')
 
 
 let buttons=document.querySelectorAll('button')
+let newGame=document.querySelector("#new")
+let clear=document.querySelector("#clear")
 
 function playGame(){
 
@@ -16,6 +18,10 @@ function playGame(){
     
     let myScore=0
     let aiScore=0
+
+let logs=document.querySelector('.logs')
+
+
     rock.addEventListener('click',()=>{
         let choices=["Rock","Paper","Scissors"]
         let index=Math.floor(Math.random()*choices.length)
@@ -37,7 +43,9 @@ function playGame(){
                 player.textContent=myScore
                 computer.textContent=aiScore
                 
-                console.log(`Opponent: ${compSelection}`)
+                let log=document.createElement('li')
+                log.textContent=`Player: ${rock.value.toUpperCase()}-${myScore} Computer: ${compSelection.toUpperCase()}-${aiScore}`
+                logs.append(log)
 
         }
         else{
@@ -71,7 +79,9 @@ function playGame(){
                 player.textContent=myScore
                 computer.textContent=aiScore
 
-                console.log(`Opponent: ${compSelection}`)
+                let log=document.createElement('li')
+                log.textContent=`Player: ${paper.value.toUpperCase()}-${myScore} Computer: ${compSelection.toUpperCase()}-${aiScore}`
+                logs.append(log) 
 
         
         }
@@ -101,7 +111,10 @@ function playGame(){
                 }
                 player.textContent=myScore
                 computer.textContent=aiScore
-                console.log(`Opponent: ${compSelection}`)
+                let log=document.createElement('li')
+                log.classList="score"
+                log.textContent=`Player: ${scissors.value.toUpperCase()}-${myScore} Computer: ${compSelection.toUpperCase()}-${aiScore}`
+                logs.append(log)
         }
         else{
             if(aiScore==5){
@@ -112,5 +125,24 @@ function playGame(){
         }
          
     })
+    
+    newGame.addEventListener('click',()=>{
+        player.textContent=0
+        computer.textContent=0
+        myScore=0
+        aiScore=0
+        // let newLogs=logs.querySelector("li")
+        // logs.remove(newLogs)
+        while(logs.hasChildNodes()){
+            logs.removeChild(logs.firstChild)
+        }
+    })
+    clear.addEventListener('click',()=>{
+        while(logs.hasChildNodes()){
+            logs.removeChild(logs.firstChild)
+        }
+    })
+    
 }
+
 playGame()
