@@ -15,7 +15,8 @@ function playGame(){
     
     // let myScore=player.textContent
     // let aiScore=computer.textContent
-    
+    player.textContent=0
+    computer.textContent=0
     let myScore=0
     let aiScore=0
 

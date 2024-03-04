@@ -13,6 +13,11 @@ table{
 
 th,td{
     border: 2px solid black;
+    text-align: center;
+}
+td{
+    
+    text-align: center;
 }
 
 #game{
@@ -62,7 +67,16 @@ background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAM
     font-family: Bradley Hand, cursive;
     
 }
-
+.choices{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+#clear{
+    height: max-content;
+}
 .logs{
     border: 3px solid black;
     width: 350px;
