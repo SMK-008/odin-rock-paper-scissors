@@ -90,6 +90,7 @@ background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAM
 li{
     /* border: 1px solid black; */
     height: 30px;
+    list-style-type: none;
 }
 
 button{
